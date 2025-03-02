@@ -406,6 +406,34 @@ main p {
   line-height: 150%;
 }
 
+.hero {
+  position: relative;
+}
+.hero video {
+  width: 100%;
+  height: auto;
+}
+.hero div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 65%);
+}
+.hero div h3 {
+  font-size: 1.7rem;
+}
+.hero div p {
+  padding-top: 0;
+  font-size: 1.1rem;
+}
+.hero div h3, .hero div p {
+  color: white;
+  padding-left: 1rem;
+}
+
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
   background-color: #1d295f;
