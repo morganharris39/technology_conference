@@ -311,6 +311,10 @@ html {
   box-sizing: border-box;
 }
 
+:root {
+  --time: 0.707s ;
+}
+
 /* --------------------------- BODY --------------------------- */
 body {
   font-family: "Spline Sans", sans-serif;
@@ -394,7 +398,7 @@ nav ul.open {
 }
 
 /* --------------------------- MAIN --------------------------- */
-main h1 {
+main h1, main h2 {
   padding: 1rem 10px 0.5rem 10px;
   font-size: 1.5rem;
   color: #7c1d47;
@@ -432,6 +436,84 @@ main p {
 .hero div h3, .hero div p {
   color: white;
   padding-left: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-gap: 1.5rem;
+  padding: 1rem 3rem 4rem 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.card {
+  perspective: 40rem;
+  display: flex;
+  transition: transform calc(var(--time) / 4);
+  text-decoration: none;
+  color: inherit;
+}
+.card:active {
+  transform: scale(0.975);
+}
+
+.card-body {
+  transform-style: preserve-3d;
+  transition: var(--time) transform;
+  border-radius: 10px;
+  flex: 1;
+}
+.card:hover .card-body {
+  transform: rotateX(180deg);
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+}
+
+.card-front {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: rotateX(-180deg);
+  margin: 0;
+}
+.card-back h3 {
+  padding: 0;
+  margin-top: 1.5rem;
+}
+.card-back p {
+  padding: 0 10px;
+  margin: 0;
+}
+.card-back button {
+  margin-top: 2rem;
+  border: none;
+  background-color: #1d295f;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card-back button:hover {
+  background-color: #7c1d47;
+}
+
+.shadow, .card-front, .card-back {
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.04), 0 4px 4px rgba(0, 0, 0, 0.04), 0 8px 8px rgba(0, 0, 0, 0.04), 0 16px 16px rgba(0, 0, 0, 0.04);
 }
 
 /* --------------------------- FOOTER --------------------------- */

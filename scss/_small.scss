@@ -11,6 +11,7 @@ html {
     box-sizing: border-box;
 } // end all elements
 
+:root { --time: 0.707s }
 
 /* --------------------------- BODY --------------------------- */
 body {
@@ -105,7 +106,7 @@ nav ul.open {
 
 /* --------------------------- MAIN --------------------------- */
 main {
-    h1 {
+    h1, h2 {
         padding: 1rem $gutter.5rem $gutter;
         font-size: 1.5rem;
         color: $secondaryColor;
@@ -145,7 +146,97 @@ main {
             padding-left: 1rem;
         }
     }
-}
+}// end hero
+
+.cards {
+    display: grid;
+
+    grid-gap: 1.5rem;
+    padding: 1rem 3rem 4rem 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  
+  .card {
+    perspective: 40rem;
+
+    display: flex;
+    transition: transform calc(var(--time) / 4);
+    text-decoration: none;
+    color: inherit;
+    
+    &:active {
+      transform: scale(0.975);
+    }
+  }
+  
+  .card-body {
+    transform-style: preserve-3d;
+    transition: var(--time) transform;
+
+    border-radius: 10px;
+    flex: 1;
+    
+    .card:hover & {
+      transform: rotateX(180deg);
+    }  
+  }
+  
+  .card-front, .card-back {
+    backface-visibility: hidden;
+
+    @extend .shadow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+  }
+
+  .card-front {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card-back {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transform: rotateX(-180deg);
+    margin: 0;
+
+    h3 {
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    p {
+        padding: 0 $gutter;
+        margin: 0;
+    }
+
+    button {
+        margin-top: 2rem;
+        border: none;
+        background-color: $primaryColor;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: $secondaryColor;
+        }
+    }
+  }
+
+  .shadow {
+    box-shadow: 0 -1px 1px rgba(0,0,0,0.04), 
+                0 2px 2px rgba(0,0,0,0.04), 
+                0 4px 4px rgba(0,0,0,0.04), 
+                0 8px 8px rgba(0,0,0,0.04),
+                0 16px 16px rgba(0,0,0,0.04); 
+  }
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
