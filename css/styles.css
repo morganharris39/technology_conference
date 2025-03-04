@@ -318,14 +318,12 @@ body {
 
 .sen-400 {
   font-family: "Sen", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .sen-800 {
   font-family: "Sen", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
 }
@@ -531,7 +529,7 @@ main p {
   padding: 0 10px;
   margin: 0;
 }
-.card-back button {
+.card-back a {
   margin-top: 1rem;
   border: none;
   background-color: #1E6523;
@@ -540,7 +538,7 @@ main p {
   border-radius: 8px;
   cursor: pointer;
 }
-.card-back button:hover {
+.card-back a:hover {
   background-color: #103d14;
 }
 
