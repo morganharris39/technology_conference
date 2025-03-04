@@ -11,33 +11,67 @@ html {
     box-sizing: border-box;
 } // end all elements
 
-:root { --time: 0.707s }
-
 /* --------------------------- BODY --------------------------- */
 body {
-    font-family: $defaultFont;
-    font-weight: $lightWeight;
     min-width: 320px;
 }
 
+.sen-400 {
+    font-family: "Sen", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .sen-800 {
+    font-family: "Sen", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .young-serif-regular {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+:root { --time: 0.707s }
 
 /* --------------------------- HEADER --------------------------- */
-#headerWrapper {border-bottom: 1px solid $greyColor;}
+#headerWrapper {background-color: $lightGreyColor;}
 header {
     display: grid;
     grid-template-columns: 50px auto 44px;
     column-gap: $gutter;
     align-items: center; //vertically
     padding: .5rem $gutter;
-    span {
-        font-size: 1.6rem;
-        font-weight: $lightWeight;
-        color: $primaryColor;
+
+    .titleDiv {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+
+        .title {
+            font-size: 1.8rem;
+            padding-bottom: 0.3rem;
+            color: $darkGreenColor;
+        }
+
+        .slogan {
+            font-size: 1.1rem;
+            color: $greenColor;
+        }
     }
+
 } // end header
 
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+
+#navWrapper {
+    background-color: $lightGreyColor;
+}
 
 #hamburgerBtn {
     position: relative;
@@ -47,10 +81,10 @@ header {
 
     .top, .bottom {
         position: absolute;
-        height: 2px;
+        height: 3px;
         width: 50%;
         left: 25%;
-        background-color: #777;
+        background-color: $darkPurpleColor;
         transition: all .3s ease;
     }
 
@@ -87,7 +121,7 @@ nav ul {
     display: none;
 
     li a {
-        color: $primaryColor;
+        color: $blackColor;
         display: block;
         padding: 0.75rem $gutter;
         text-decoration: none;
@@ -95,7 +129,7 @@ nav ul {
     }
 
     li.active a {
-        color: $secondaryColor;
+        color: $darkPurpleColor;
     }
 } // end nav!!!
 
@@ -108,13 +142,12 @@ nav ul.open {
 main {
     h1, h2 {
         padding: 1rem $gutter.5rem $gutter;
-        font-size: 1.5rem;
-        color: $secondaryColor;
-        font-weight: $lightWeight
+        font-size: 1.8rem;
+        color: $darkPurpleColor;
     }
     p {
         padding: .5rem $gutter;
-        color: #333;
+        color: $blackColor;
         line-height: $leading;
     }
 }// end main
@@ -133,13 +166,15 @@ main {
         right: 0;
         bottom: 0;
         background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 65%);
+        background: linear-gradient(180deg, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0) 90%);
         h3 {
             font-size: 1.7rem;
+            margin: 1.5rem 0 0.3rem 0;
         }
         p {
             padding-top: 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            margin: 0.4rem 0;
         }
         h3, p {
             color: white;
@@ -216,16 +251,16 @@ main {
     }
 
     button {
-        margin-top: 2rem;
+        margin-top: 1rem;
         border: none;
-        background-color: $primaryColor;
+        background-color: $greenColor;
         color: white;
         padding: 1rem 2rem;
         border-radius: 8px;
         cursor: pointer;
         
         &:hover {
-            background-color: $secondaryColor;
+            background-color: $darkGreenColor;
         }
     }
   }
@@ -240,14 +275,14 @@ main {
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
-    background-color: $primaryColor
+    background-color: $darkPurpleColor;
 } // end footer wrapper
 
 footer {
     font-size: .85rem;
     padding: 1rem $gutter;
-    color: $greyColor;
+    color: white;
     text-align: center;
     line-height: $leading;
-    a {color: $greyColor;}
+    a {color: white;}
 }// end footer
